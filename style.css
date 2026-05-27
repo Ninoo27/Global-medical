@@ -1,0 +1,272 @@
+/* Reset e impostazioni di base */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+body { background-color: #f8fafc; color: #1e293b; line-height: 1.6; padding-bottom: 90px; }
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+/* Riquadro di Benvenuto Centrato e Moderno */
+.dashboard-welcome-panel {
+    background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+    border: 1.5px solid #bae6fd;
+    border-radius: 20px;
+    padding: 50px 30px;
+    margin: 40px auto;
+    max-width: 1100px;
+    box-shadow: 0 10px 30px rgba(2, 132, 199, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.dashboard-logo-wrapper { margin-bottom: 25px; }
+.dashboard-main-logo { height: 130px; width: auto; object-fit: contain; border-radius: 12px; }
+
+/* Tipografia del Benvenuto */
+.dashboard-welcome-title { color: #0f172a; font-size: 36px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 12px; }
+.brand-highlight { color: #0284c7; }
+.dashboard-welcome-subtitle { color: #334155; font-size: 20px; font-weight: 600; max-width: 800px; margin-bottom: 10px; }
+.dashboard-welcome-description { color: #64748b; font-size: 16px; font-weight: 400; max-width: 750px; margin-bottom: 30px; }
+
+/* NUOVO: Pulsante Grande Animato del Sondaggio */
+.btn-sondaggio-hero {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: white;
+    font-size: 19px;
+    font-weight: 800;
+    padding: 16px 36px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 25px rgba(2, 132, 199, 0.25);
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: battitoEffetto 2.5s infinite;
+}
+.btn-sondaggio-hero:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 30px rgba(2, 132, 199, 0.35);
+}
+@keyframes battitoEffetto {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); box-shadow: 0 10px 30px rgba(2, 132, 199, 0.4); }
+    100% { transform: scale(1); }
+}
+
+/* Schede Servizi (Detrazione / Consulenza) */
+.features-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; width: 100%; }
+.feature-card { background: #ffffff; padding: 35px 30px; border-radius: 16px; width: 100%; max-width: 450px; text-align: left; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.03); border: 1px solid #e2e8f0; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.feature-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08); }
+
+.card-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: bold; margin-bottom: 20px; }
+.tax-card .card-icon { background-color: #e0f2fe; color: #0384c7; }
+.consult-card .card-icon { background-color: #f0fdf4; color: #16a34a; }
+.feature-card h3 { font-size: 20px; color: #0f172a; margin-bottom: 12px; font-weight: 700; }
+.feature-card p { font-size: 15px; color: #475569; line-height: 1.6; }
+
+/* Icone SVG per i bottoni */
+.btn-icon { width: 24px; height: 24px; }
+
+/* Pulsante fluttuante WhatsApp */
+.btn-consulenza-whatsapp { 
+    position: fixed; 
+    bottom: 25px; 
+    right: 25px; 
+    background-color: #25D366; 
+    color: white; 
+    text-decoration: none; 
+    padding: 14px 28px; 
+    border-radius: 50px; 
+    font-weight: 700; 
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); 
+    z-index: 1000; 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    font-size: 16px;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease; 
+}
+.btn-consulenza-whatsapp:hover { background-color: #1ebd58; transform: scale(1.03); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5); }
+
+/* Sezione Catalogo e Ricerca */
+.section-title { margin: 20px 0 25px 0; color: #0f172a; text-align: center; font-size: 28px; font-weight: 800; }
+.search-container { margin-bottom: 40px; text-align: center; }
+#productSearch { width: 100%; max-width: 600px; padding: 15px 25px; font-size: 16px; border: 2px solid #e2e8f0; border-radius: 30px; outline: none; background-color: #ffffff; transition: border-color 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+#productSearch:focus { border-color: #0056b3; box-shadow: 0 4px 12px rgba(0,86,179,0.1); }
+
+/* Griglia Foto Prodotti */
+.products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
+.product-card { background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 15px rgba(15, 23, 42, 0.03); border: 1px solid #edf2f7; display: flex; flex-direction: column; }
+.product-img-container { width: 100%; height: 200px; background-color: #ffffff; padding: 15px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #f1f5f9; }
+.product-img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.product-content { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
+.badge-fiscale { background-color: #e2fbe8; color: #15803d; padding: 5px 12px; border-radius: 20px; font-size: 13px; font-weight: 700; align-self: flex-start; margin-bottom: 15px; display: inline-block;}
+.product-content h3 { font-size: 19px; color: #0f172a; margin-bottom: 20px; font-weight: 700; }
+.btn-apri { background-color: #0056b3; color: white; text-align: center; padding: 14px; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; font-size: 16px; width: 100%; transition: background-color 0.2s; }
+.btn-apri:hover { background-color: #004085; }
+
+/* ======================================================== */
+/* Finestre Modali (Condivise per Prodotto e Sondaggio)     */
+/* ======================================================== */
+.modal { 
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(15, 23, 42, 0.7); 
+    align-items: center; 
+    justify-content: center; 
+    padding: 20px; /* Evita che il riquadro tocchi i bordi dello schermo */
+}
+
+.modal-content { 
+    background-color: #fff; 
+    padding: 45px 30px 35px 30px; /* Più spazio in alto per la X */
+    border-radius: 20px; 
+    width: 100%; 
+    max-width: 750px; 
+    position: relative; 
+    
+    /* LA MAGIA CHE RISOLVE IL PROBLEMA: */
+    max-height: 85vh; /* Altezza massima: 85% dello schermo */
+    overflow-y: auto; /* Scorrimento abilitato all'interno del riquadro! */
+    
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); 
+    animation: scivolaGiu 0.3s ease-out; 
+}
+
+@keyframes scivolaGiu { from {transform: translateY(-40px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
+
+/* La nuova X: più grande, cliccabile e sempre ancorata in alto a destra */
+.close-btn { 
+    color: #94a3b8; 
+    position: absolute; 
+    top: 15px; 
+    right: 20px; 
+    font-size: 32px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    line-height: 1; 
+    z-index: 100;
+    background-color: #ffffff; 
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Effetto bottone fluttuante */
+    transition: 0.2s;
+}
+
+.close-btn:hover { 
+    color: #1e293b; 
+    background-color: #f1f5f9; 
+    transform: scale(1.1); /* Si ingrandisce quando ci passi sopra */
+}
+
+/* Elementi interni Modale Prodotto */
+.modal-media-section { background-color: #f8fafc; padding: 15px; border-radius: 12px; margin: 15px 0; text-align: center; border: 1px solid #e2e8f0; }
+.main-preview-box { width: 100%; height: 320px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; cursor: pointer; }
+#modalFotoPrincipale { max-width: 100%; max-height: 290px; object-fit: contain; border-radius: 8px; transition: transform 0.2s; }
+#modalFotoPrincipale:hover { transform: scale(1.02); }
+.zoom-hint { font-size: 12px; color: #64748b; margin-top: 8px; font-style: italic; }
+.thumb-scroll-container { display: flex; gap: 10px; overflow-x: auto; padding: 10px 5px; margin-top: 10px; scroll-behavior: smooth; border-top: 1px solid #e2e8f0; }
+.thumb-scroll-container::-webkit-scrollbar { height: 6px; }
+.thumb-scroll-container::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 10px; }
+.thumb-img { width: 85px; height: 65px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 2px solid transparent; opacity: 0.6; flex-shrink: 0; transition: 0.2s; }
+.thumb-img:hover, .thumb-img.active { opacity: 1; border-color: #0056b3; }
+.modal-descrizione { font-size: 15px; margin: 25px 0; color: #334155; border-left: 4px solid #0056b3; padding-left: 15px; font-weight: 500; }
+.modal-dettagli h4 { color: #0056b3; margin-top: 20px; margin-bottom: 8px; font-size: 17px; font-weight: 700; }
+.modal-dettagli ul { margin-left: 20px; margin-bottom: 15px; color: #334155; font-size: 15px; line-height: 1.7; }
+.btn-modal-wa { background-color: #25D366; color: white; text-align: center; padding: 15px; text-decoration: none; border-radius: 10px; font-weight: bold; display: flex; margin-top: 30px; align-items: center; justify-content: center; gap: 12px; font-size: 16px; transition: background-color 0.2s;}
+.btn-modal-wa:hover { background-color: #1ebd58; }
+
+/* Stile per i moduli di compilazione del Sondaggio */
+.form-group { margin-bottom: 20px; text-align: left; }
+.form-group label { display: block; font-weight: 700; color: #0f172a; margin-bottom: 8px; font-size: 15px; }
+.form-group select, .form-group input { width: 100%; padding: 12px 16px; font-size: 15px; border: 2px solid #e2e8f0; border-radius: 8px; background-color: #f8fafc; color: #334155; outline: none; transition: border-color 0.2s, background-color 0.2s; }
+.form-group select:focus, .form-group input:focus { border-color: #0284c7; background-color: #ffffff; }
+
+.btn-invia-sondaggio {
+    width: 100%; background-color: #16a34a; color: white; font-size: 16px; font-weight: 700; padding: 14px;
+    border: none; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: background-color 0.2s; margin-top: 25px;
+}
+.btn-invia-sondaggio:hover { background-color: #15803d; }
+/* Lightbox zoom */
+.lightbox { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.98); align-items: center; justify-content: center; }
+.lightbox-content-box { max-width: 85%; max-height: 85%; display: flex; align-items: center; justify-content: center; }
+#lightboxImgGrande { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 4px; animation: opacita 0.2s ease-in; }
+@keyframes opacita { from {opacity: 0.5;} to {opacity: 1;} }
+.close-lightbox { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 50px; font-weight: bold; cursor: pointer; }
+.lightbox-arrow { position: absolute; background: rgba(255,255,255,0.08); border: none; color: white; font-size: 35px; padding: 15px 22px; cursor: pointer; border-radius: 50%; user-select: none; top: 50%; transform: translateY(-50%); transition: background 0.2s; }
+.lightbox-arrow:hover { background: rgba(255,255,255,0.2); }
+.arrow-left { left: 20px; }
+.arrow-right { right: 20px; }
+
+/* ========================================= */
+/* FOOTER (Piè di pagina con Logo e Contatti) */
+/* ========================================= */
+footer { 
+    background-color: #0f172a; 
+    color: #94a3b8; 
+    padding: 50px 0; 
+    font-size: 15px; 
+    border-top: 1px solid #1e293b; 
+}
+
+.footer-content { 
+    display: flex; 
+    align-items: center; /* Allinea logo e testi al centro in verticale */
+    justify-content: center; /* Centra il blocco nella pagina */
+    gap: 50px; /* Crea uno spazio vuoto tra il logo e i contatti */
+    flex-wrap: wrap; /* Se lo schermo è piccolo, manda a capo automaticamente */
+}
+
+/* Stile del Logo nel footer */
+.footer-logo { 
+    max-height: 110px; /* Grandezza del logo */
+    width: auto; 
+    border-radius: 12px; 
+    background-color: #ffffff; /* Sfondo bianco per farlo risaltare sul blu scuro */
+    padding: 5px; /* Un piccolo bordino bianco attorno */
+}
+
+.footer-text-section { 
+    display: flex; 
+    flex-direction: column; 
+    text-align: left; /* Allinea il testo dei contatti a sinistra */
+}
+
+.footer-details { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+}
+
+.footer-details strong { color: #f8fafc; }
+.footer-details a { color: #38bdf8; text-decoration: none; font-weight: 600; }
+.footer-details a:hover { text-decoration: underline; }
+
+.copyright-text { 
+    margin-top: 20px; 
+    font-size: 13px; 
+    color: #64748b; 
+    border-top: 1px solid #1e293b; /* Una piccola riga sottile di separazione */
+    padding-top: 15px;
+}
+
+/* Regola speciale per i cellulari: centra tutto se lo schermo è stretto */
+@media (max-width: 768px) {
+    .footer-content { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 30px;
+    }
+    .footer-text-section {
+        text-align: center;
+    }
+}
