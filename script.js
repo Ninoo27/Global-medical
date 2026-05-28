@@ -236,3 +236,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+// ==========================================
+// LOGICA DEL COOKIE BANNER
+// ==========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const banner = document.getElementById('cookieBanner');
+    const btnAccetta = document.getElementById('btnAccettaCookie');
+
+    // 1. Controlliamo se esiste già la memoria "cookieAccettati"
+    if (!localStorage.getItem('cookieAccettati')) {
+        // Se non esiste, mostriamo il banner con un piccolo ritardo (mezzo secondo)
+        setTimeout(function() {
+            banner.classList.add('show');
+        }, 500);
+    }
+
+    // 2. Cosa succede quando si clicca "Accetto"
+    btnAccetta.addEventListener('click', function() {
+        // Salviamo la scelta nella memoria del browser
+        localStorage.setItem('cookieAccettati', 'true');
+        
+        // Nascondiamo il banner togliendo la classe
+        banner.classList.remove('show');
+    });
+});
