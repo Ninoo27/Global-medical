@@ -197,3 +197,63 @@ footer { background-color: #0f172a; color: #94a3b8; padding: 50px 0; font-size: 
     .btn-instagram-footer { margin: 15px auto 0 auto; }
     .feature-card { max-width: 100%; }
 }
+/* ========================================= */
+/* BANNER COOKIE (Gratuito)                  */
+/* ========================================= */
+
+.cookie-banner {
+    position: fixed;
+    bottom: -100px; /* Nasconde il banner all'inizio spingendolo in basso */
+    left: 0;
+    width: 100%;
+    background-color: #0f172a; /* Blu scuro elegante come il tuo footer */
+    color: #f8fafc;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 9999; /* Lo tiene sopra a tutto il resto */
+    transition: bottom 0.5s ease-in-out; /* Animazione di entrata fluida */
+}
+
+/* Quando aggiungiamo questa classe con JS, il banner sale su */
+.cookie-banner.show {
+    bottom: 0;
+}
+
+.cookie-banner p {
+    font-size: 14px;
+    margin: 0;
+    max-width: 800px;
+}
+
+.cookie-link {
+    color: #38bdf8;
+    text-decoration: underline;
+}
+
+.btn-cookie {
+    background-color: #25D366; /* Verde WhatsApp per coerenza visiva */
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-cookie:hover {
+    background-color: #1ebd58;
+}
+
+/* Adattamento per i cellulari */
+@media (max-width: 768px) {
+    .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+}
