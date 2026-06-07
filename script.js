@@ -161,9 +161,50 @@ const databaseProdotti = {
             <h4>Specifiche:</h4>
             <ul><li>Portata max 150 kg. Imbragatura standard (schiena e cosce) compresa.</li></ul>
         `
+    },
+    "deambulatore-runner": {
+        titolo: "Deambulatore Global Runner",
+        descrizione: "Rollator di alta qualità, leggero e pieghevole. Dotato di seduta imbottita, schienale di supporto e ampio cestino portaoggetti. Progettato per offrire la massima autonomia e sicurezza.",
+        immagini: ["GLOBAL RUNNER-1.jpg.jpeg"],
+        dettagli: `
+            <h4>Caratteristiche Principali:</h4>
+            <ul>
+                <li><strong>Struttura:</strong> Telaio in alluminio ultra-leggero, facilmente ripiegabile per un trasporto agevole in auto.</li>
+                <li><strong>Seduta e Comfort:</strong> Seduta imbottita comoda con schienale a fascia per una sosta in totale relax.</li>
+                <li><strong>Sicurezza:</strong> Sistema frenante a doppia funzione per una frenata immediata o per il blocco di stazionamento.</li>
+                <li><strong>Accessori:</strong> Cestino portaoggetti di grande capienza per trasportare la spesa o oggetti personali.</li>
+            </ul>
+            <h4>Specifiche Tecniche:</h4>
+            <ul>
+                <li>Impugnature anatomiche regolabili in altezza per un comfort personalizzato.</li>
+                <li>Ruote piene ad alta resistenza, adatte sia per uso domestico che esterno.</li>
+                <li>Design compatto per garantire maneggevolezza anche negli spazi più stretti.</li>
+            </ul>
+        `
+    },
+    
+    // NUOVO PRODOTTO: TOPPER MAGNETICO
+    "topper-magnetico": {
+        titolo: "Topper Magnetico",
+        descrizione: "Topper innovativo con terapia magnetica integrata. Stimola il microcircolo cellulare e dona equilibrio ed energia, migliorando la qualità del tuo riposo.",
+        immagini: ["Magneto Topper.jpeg"],
+        dettagli: `
+            <h4>Benefici e Caratteristiche:</h4>
+            <ul>
+                <li><strong>Terapia Magnetica:</strong> Stimola il microcircolo e il metabolismo cellulare.</li>
+                <li><strong>Comfort Superiore:</strong> Migliora significativamente la qualità del riposo.</li>
+                <li><strong>Benessere:</strong> Dona equilibrio e nuova energia a ogni riposo.</li>
+                <li><strong>Versatile:</strong> Compatibile con diversi tipi di materassi.</li>
+            </ul>
+            <h4>Specifiche Tecniche:</h4>
+            <ul>
+                <li><strong>Altezza Topper Finito:</strong> 4 cm Ca.</li>
+                <li><strong>Flessibilità:</strong> Si piega perfettamente su reti manuali e a motore.</li>
+                <li><strong>Lavaggio:</strong> Lavabile in lavatrice a 30° (non centrifugare).</li>
+            </ul>
+        `
     }
 };
-
 
 let immaginiProdottoCorrente = [];
 let indiceFotoAttuale = 0;
@@ -233,7 +274,7 @@ function cambiaFotoLightbox(direzione) {
     }
 }
 
-// FUNZIONI PER GESTIRE LA FINESTRA DEL SONDAGGIO
+// GESTIONE FINESTRE SONDAGGIO E OMAGGIO
 function apriSondaggio() {
     document.getElementById("modalSondaggio").style.display = "flex";
     document.body.style.overflow = "hidden";
@@ -244,7 +285,6 @@ function chiudiSondaggio() {
     document.body.style.overflow = "auto";
 }
 
-// FUNZIONI PER GESTIRE LA FINESTRA OMAGGIO
 function apriOmaggio() {
     document.getElementById("modalOmaggio").style.display = "flex";
     document.body.style.overflow = "hidden";
@@ -254,3 +294,51 @@ function chiudiOmaggio() {
     document.getElementById("modalOmaggio").style.display = "none";
     document.body.style.overflow = "auto";
 }
+
+// LOGICHE DI INIZIALIZZAZIONE DELLA PAGINA
+document.addEventListener('DOMContentLoaded', function() {
+    // Ricerca Live Prodotti
+    const searchInput = document.getElementById('productSearch');
+    const productCards = document.querySelectorAll('.product-card');
+    if(searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            productCards.forEach(card => {
+                const productKeywords = card.getAttribute('data-name');
+                if (productKeywords.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    }
+
+    // Banner Cookie
+    const banner = document.getElementById('cookieBanner');
+    const btnAccetta = document.getElementById('btnAccettaCookie');
+    if (banner && btnAccetta) {
+        if (!localStorage.getItem('cookieAccettati')) {
+            setTimeout(function() { banner.classList.add('show'); }, 500);
+        }
+        btnAccetta.addEventListener('click', function() {
+            localStorage.setItem('cookieAccettati', 'true');
+            banner.classList.remove('show');
+        });
+    }
+
+    // Blocco Nord Italia per il Sondaggio
+    const formSondaggio = document.getElementById('formSondaggioPersonale');
+    if(formSondaggio) {
+        formSondaggio.addEventListener('submit', function(event) {
+            const controlloRegione = document.getElementById('controlloRegione');
+            if(controlloRegione) {
+                const regioneSelezionata = controlloRegione.value;
+                if (regioneSelezionata !== 'Nord Italia') {
+                    event.preventDefault(); 
+                    alert("Ci dispiace! L'offerta e l'omaggio attualmente sono attivi solo per i residenti nel NORD ITALIA. Grazie per il tuo interesse.");
+                }
+            }
+        });
+    }
+});
