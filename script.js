@@ -54,6 +54,35 @@ const databaseProdotti = {
             </ul>
         `
     },
+    "letto-luxor": {
+        titolo: "Letto Ortopedico Global Luxor",
+        descrizione: "Rete in legno multistrato di faggio con speciali funghi alveolati ammortizzanti a zone. Sostegno ergonomico personalizzabile per una detrazione fiscale del 19%. Telecomando Bluetooth di serie.",
+        immagini: ["global luxor.png", "global luxor1.png", "global luxor2.png", "global luxor3.png", "global luxor4.png"],
+        dettagli: `
+            <h4>Struttura e Materiali di Qualità:</h4>
+            <ul>
+              <li><strong>Telaio robusto:</strong> Realizzato in multistrato di faggio (70x25 cm).</li>
+              <li><strong>Piedi in legno:</strong> Rinforzati con angolari in acciaio per la massima stabilità.</li>
+              <li><strong>Ferma materasso:</strong> Pratico accessorio in metallo posizionato ai piedi.</li>
+            </ul>
+            <h4>Ergonomia e Comfort Avanzato:</h4>
+            <ul>
+              <li><strong>Funghi Alveolati:</strong> Ammortizzanti a zone per un comfort su misura che si adatta alle forme del corpo.</li>
+              <li><strong>Supporto Ergonomico:</strong> Con 30 regolatori rossi e un sostegno centrale estraibile per personalizzare la rigidità.</li>
+            </ul>
+            <h4>Portata e Tecnologia:</h4>
+            <ul>
+              <li><strong>Portata:</strong> Supporto garantito fino a <strong>135 kg a persona</strong> (calcolato su un'altezza di 1,80 cm).</li>
+              <li><strong>Telecomando Bluetooth:</strong> Di serie, per un controllo dei movimenti fluido e senza fili.</li>
+            </ul>
+            <h4>Agevolazioni e Misure:</h4>
+            <ul>
+              <li><strong>Recupero Fiscale:</strong> Detraibile al 19% nel modello 730.</li>
+              <li><strong>Misure disponibili:</strong> Larghezze da 80 a 170 cm e Fuori Misura. Lunghezze 190, 195, 200 cm e Fuori Misura.</li>
+              <li><strong>Altezza piedi:</strong> Kit 4 piedi in legno disponibili h 23/28/33/38/43/48 cm.</li>
+            </ul>
+        `
+    },
     "scooter-3": {
         titolo: "Scooter Elettrico Global 3",
         descrizione: "Scooter ideale per uso esterno con quattro ammortizzatori indipendenti e sedile imbottito girevole.",
@@ -135,11 +164,10 @@ const databaseProdotti = {
     }
 };
 
-// VARIABILI DI STATO
+
 let immaginiProdottoCorrente = [];
 let indiceFotoAttuale = 0;
 
-// FUNZIONE PER APRIRE LA SCHEDA PRODOTTO
 function apriModale(idProdotto) {
     const prodotto = databaseProdotti[idProdotto];
     immaginiProdottoCorrente = prodotto.immagini;
@@ -159,22 +187,20 @@ function apriModale(idProdotto) {
         const miniatura = document.createElement("img");
         miniatura.src = nomeFoto;
         miniatura.className = "thumb-img" + (indice === 0 ? " active" : "");
-        
         miniatura.onclick = function() {
             fotoPrincipale.src = nomeFoto;
             indiceFotoAttuale = indice;
             document.querySelectorAll(".thumb-img").forEach(t => t.classList.remove("active"));
             miniatura.classList.add("active");
         };
-        
         contenitoreGalleria.appendChild(miniatura);
     });
-
+    
     const numeroWhatsApp = "393924440598";
     const messaggio = encodeURI("Salve, vorrei avere maggiori informazioni sul prodotto: " + prodotto.titolo);
     document.getElementById("modalWhatsapp").href = "https://wa.me/" + numeroWhatsApp + "?text=" + messaggio;
-
-    document.getElementById("modalProdotto").style.display = "block";
+    
+    document.getElementById("modalProdotto").style.display = "flex";
     document.body.style.overflow = "hidden";
 }
 
@@ -183,7 +209,6 @@ function chiudiModale() {
     document.body.style.overflow = "auto";
 }
 
-// APRIRE E CHIUDERE LO ZOOM LIGHTBOX
 function apriLightboxAttuale() {
     const lightbox = document.getElementById("lightboxFoto");
     const lightboxImg = document.getElementById("lightboxImgGrande");
@@ -208,7 +233,7 @@ function cambiaFotoLightbox(direzione) {
     }
 }
 
-// NUOVO: FUNZIONI PER GESTIRE LA FINESTRA DEL SONDAGGIO
+// FUNZIONI PER GESTIRE LA FINESTRA DEL SONDAGGIO
 function apriSondaggio() {
     document.getElementById("modalSondaggio").style.display = "flex";
     document.body.style.overflow = "hidden";
@@ -219,45 +244,13 @@ function chiudiSondaggio() {
     document.body.style.overflow = "auto";
 }
 
-// BARRA DI RICERCA LIVE NELLA HOME
-document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.getElementById('productSearch');
-    const productCards = document.querySelectorAll('.product-card');
+// FUNZIONI PER GESTIRE LA FINESTRA OMAGGIO
+function apriOmaggio() {
+    document.getElementById("modalOmaggio").style.display = "flex";
+    document.body.style.overflow = "hidden";
+}
 
-    searchInput.addEventListener('input', function(e) {
-        const searchTerm = e.target.value.toLowerCase().trim();
-        productCards.forEach(card => {
-            const productKeywords = card.getAttribute('data-name');
-            if (productKeywords.includes(searchTerm)) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
-});
-// ==========================================
-// LOGICA DEL COOKIE BANNER
-// ==========================================
-
-document.addEventListener('DOMContentLoaded', function() {
-    const banner = document.getElementById('cookieBanner');
-    const btnAccetta = document.getElementById('btnAccettaCookie');
-
-    // 1. Controlliamo se esiste già la memoria "cookieAccettati"
-    if (!localStorage.getItem('cookieAccettati')) {
-        // Se non esiste, mostriamo il banner con un piccolo ritardo (mezzo secondo)
-        setTimeout(function() {
-            banner.classList.add('show');
-        }, 500);
-    }
-
-    // 2. Cosa succede quando si clicca "Accetto"
-    btnAccetta.addEventListener('click', function() {
-        // Salviamo la scelta nella memoria del browser
-        localStorage.setItem('cookieAccettati', 'true');
-        
-        // Nascondiamo il banner togliendo la classe
-        banner.classList.remove('show');
-    });
-});
+function chiudiOmaggio() {
+    document.getElementById("modalOmaggio").style.display = "none";
+    document.body.style.overflow = "auto";
+}
