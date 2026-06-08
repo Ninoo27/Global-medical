@@ -70,7 +70,7 @@ const databaseProdotti = {
               <li><strong>Funghi Alveolati:</strong> Ammortizzanti a zone per un comfort su misura che si adatta alle forme del corpo.</li>
               <li><strong>Supporto Ergonomico:</strong> Con 30 regolatori rossi e un sostegno centrale estraibile per personalizzare la rigidità.</li>
             </ul>
-            <h4>Portata e Tecnologia:</h4>
+            <h4>Portata e Technology:</h4>
             <ul>
               <li><strong>Portata:</strong> Supporto garantito fino a <strong>135 kg a persona</strong> (calcolato su un'altezza di 1,80 cm).</li>
               <li><strong>Telecomando Bluetooth:</strong> Di serie, per un controllo dei movimenti fluido e senza fili.</li>
@@ -182,8 +182,6 @@ const databaseProdotti = {
             </ul>
         `
     },
-    
-    // NUOVO PRODOTTO: TOPPER MAGNETICO
     "topper-magnetico": {
         titolo: "Topper Magnetico",
         descrizione: "Topper innovativo con terapia magnetica integrata. Stimola il microcircolo cellulare e dona equilibrio ed energia, migliorando la qualità del tuo riposo.",
@@ -201,6 +199,33 @@ const databaseProdotti = {
                 <li><strong>Altezza Topper Finito:</strong> 4 cm Ca.</li>
                 <li><strong>Flessibilità:</strong> Si piega perfettamente su reti manuali e a motore.</li>
                 <li><strong>Lavaggio:</strong> Lavabile in lavatrice a 30° (non centrifugare).</li>
+            </ul>
+        `
+    },
+    
+    // NUOVO PRODOTTO AGGIUNTO: POLTRONA GLOBAL LIVIA
+    "poltrona-livia": {
+        titolo: "Poltrona Relax Global Livia",
+        descrizione: "Poltrona ortopedica dotata di comando elettrico, sistema a 2 motori con funzione alzapersona (Lift) e Kit Roller di serie per lo spostamento. Offre il massimo comfort quotidiano unito a un elegante tessuto antimacchia.",
+        immagini: ["Global Livia.png"],
+        dettagli: `
+            <h4>Sollievo e Posizioni Relax (3 Posizioni):</h4>
+            <ul>
+                <li><strong>Funzione LIFT (Alzapersona):</strong> Accompagna il movimento di alzata in modo fluido, aiutando ad alzarsi in piedi con facilità e in totale sicurezza.</li>
+                <li><strong>Posizione TV:</strong> Configurazione ideale per leggere, guardare la televisione o riposare mantenendo la corretta postura cervicale e lombare.</li>
+                <li><strong>Posizione RELAX:</strong> Estensione totale indipendente di schienale e pediera per garantire il massimo del comfort e un relax assoluto.</li>
+            </ul>
+            <h4>Caratteristiche Strutturali e Materiali:</h4>
+            <ul>
+                <li><strong>Struttura Interna:</strong> Realizzata interamente in legno multistrato ultra-resistente.</li>
+                <li><strong>Imbottitura:</strong> Poliuretano espanso ad alta densità indeformabile, studiato per un supporto ottimale della colonna.</li>
+                <li><strong>Movimentazione Professionale:</strong> Meccanismo a 2 motori indipendenti per gestire schienale e poggiapiedi in modo separato.</li>
+                <li><strong>Kit Roller di Serie:</strong> Pratico sistema di ruote a scomparsa per spostare agevolamente la poltrona da una stanza all'altra della casa.</li>
+            </ul>
+            <h4>Tessuto e Varianti Colore:</h4>
+            <ul>
+                <li><strong>Rivestimento Premium:</strong> Tessuto tecnico <em>Savoy Antimacchia</em> d'alta qualità (Composizione: 89% poliestere, 8% poliammide, 2% cotone, 1% viscosa).</li>
+                <li><strong>Colorazioni Disponibili a Catalogo:</strong> Cod. 20 Beige | Cod. 70 Rosso | Cod. 94 Visone.</li>
             </ul>
         `
     }
@@ -262,7 +287,7 @@ function chiudiLightbox() {
 }
 
 function cambiaFotoLightbox(direzione) {
-    indiceFotoAttuale = (indiceFotoAttuale + direzione + immaginiProdottoCorrente.length) % immaginiProdottoCorrente.length;
+    indiceFotoAttuale = (indiceFotoAttuale + direction + immaginiProdottoCorrente.length) % immaginiProdottoCorrente.length;
     document.getElementById("lightboxImgGrande").src = immaginiProdottoCorrente[indiceFotoAttuale];
     document.getElementById("modalFotoPrincipale").src = immaginiProdottoCorrente[indiceFotoAttuale];
     
