@@ -291,7 +291,7 @@ function apriModale(idProdotto) {
         contenitoreGalleria.appendChild(miniatura);
     });
     
-    const numeroWhatsApp = "393924440598";
+    const numeroWhatsApp = "393522920711";
     const messaggio = encodeURI("Salve, vorrei avere maggiori informazioni sul prodotto: " + prodotto.titolo);
     document.getElementById("modalWhatsapp").href = "https://wa.me/" + numeroWhatsApp + "?text=" + messaggio;
     
@@ -393,6 +393,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     alert("Ci dispiace! L'offerta e l'omaggio attualmente sono attivi solo per i residenti nel NORD ITALIA. Grazie per il tuo interesse.");
                 }
             }
+        });
+    }
+});
         });
     }
 });
